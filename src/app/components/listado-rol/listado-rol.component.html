@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>Rol</mat-label>
+  <mat-select required name="rol" id="rol" [ngModel]="selectedItem" (ngModelChange)="onChange($event)">
+    <mat-option *ngFor = "let x of rolesArray" [value]="x">{{x}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+

@@ -1,0 +1,95 @@
+<div class="container">
+  <mat-card class="containerCard">
+    <mat-card-title class="titol">Datos alumno</mat-card-title>
+
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Nombre completo</mat-label>
+      <input [ngModel]="nombre.value" #nombre (ngModelChange)="comprobarNombre($event)" matInput placeholder="Intro nombre y apellidos">
+      <mat-icon [class]=" nombreWrong " matSuffix>person</mat-icon>
+      <mat-hint class="error" *ngIf="(nombreWrong === 'error')">El formato debe ser entre 1 y 30 caracteres</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefono</mat-label>
+      <input [ngModel]="telefono.value" (ngModelChange)="comprobarTelefono($event)" placeholder="Intro telefono" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" maxlength="9" size="9" matInput type="text" #telefono>
+      <mat-icon [class]=" phoneWrong " matSuffix>phone</mat-icon>
+      <mat-hint class="error" *ngIf="(phoneWrong === 'error')">El formato debe ser 9 digitos</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>DNI</mat-label>
+      <input [ngModel]="dni.value" (ngModelChange)="comprobarDNI($event)" matInput type="text" minlength="9" maxlength="10"  #dni>
+      <mat-icon [class]=" dniWrong " matSuffix>badge</mat-icon>
+      <mat-hint class="error" *ngIf="(dniWrong === 'error')">El DNI o NIE introducido es incorrecto</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo electrónico</mat-label>
+      <input [ngModel]="email.value" (ngModelChange)="comprobarEmail($event)" matInput type="text" #email>
+      <mat-icon [class]=" emailWrong " matSuffix>mail</mat-icon>
+      <mat-hint class="error" *ngIf="(emailWrong === 'error')">El email introducido es incorrecto</mat-hint>
+    </mat-form-field>
+
+    <app-listado-rol class="selector" (rol) ="rolDefinido($event)"></app-listado-rol>
+    <app-jornadas class="selector" (jornada)="jornadaDefinida($event)"></app-jornadas>
+
+    <button class="verd" mat-raised-button color="primary" (click)="crearAlumno(nombre.value,telefono.value,dni.value,email.value)">ADD</button>
+
+    <!-- <button class="verd" mat-raised-button color="primary" (click)="crearAlumno(nombre.value,apellido1.value,apellido2.value,telefono.value,dni.value,email.value)">
+      ADD
+    </button>-->
+  </mat-card>
+
+
+</div>
+
+
+<!--
+<div class="subtitol" style="text-align:center;">
+  <mat-card-title>Alumnos</mat-card-title>
+  <div class="alumnos">
+    <div *ngFor="let a of alumnosArray" class="alumno">
+
+        <mat-list-item class="nombreAlumno" role="listitem">{{a.data.nombre}} {{a.data.apellido1}} {{a.data.apellido2}} </mat-list-item>
+        <button mat-icon-button color="primary" aria-label="Example icon button with a delete icon" (click)="eliminar(a.id)"><mat-icon>delete</mat-icon></button>
+    </div>
+  </div>
+</div>
+
+<app-listado-alumnos></app-listado-alumnos>-->
+
+
+
+
+<!-- <div>
+  <input type="text" #nombre>
+  <input type="text" #apellido1>
+  <input type="text" #apellido2>
+  <button (click)="crearAlumno(nombre.value,apellido1.value,apellido2.value)">Add</button>
+</div>
+
+<div *ngFor="let a of alumnosArray">
+  <p>{{a.nombre}} {{a.apellido1}} {{a.apellido2}}</p>
+  <button (click)="eliminar(a.nombre)">REMOVE</button>
+</div>
+<button (click)="salir()">
+  EXIT
+</button>-->
+
+
+      <!-- </mat-list> {{a.data.date.toDate() | date: 'short'}}-->
+
+
+
+    <!-- <mat-form-field appearance="outline">
+      <mat-label>Primer apellido</mat-label>
+      <input matInput type="text" #apellido1>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Segundo apellido</mat-label>
+      <input matInput type="text" #apellido2>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field> -->

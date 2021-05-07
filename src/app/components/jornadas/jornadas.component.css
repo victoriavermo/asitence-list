@@ -1,0 +1,11 @@
+ .container{
+
+  display: flex;
+  justify-content: center;
+}
+
+/*.mat-form-field{
+  width: 125%;
+  margin-left: -22px;
+  margin-top: 5px;
+}*/

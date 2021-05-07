@@ -1,0 +1,17 @@
+.containerCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.container{
+  margin: 5% auto;
+  width: 50%;
+}
+
+.titol{
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+}

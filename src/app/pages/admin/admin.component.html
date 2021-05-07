@@ -1,0 +1,6 @@
+<div class="container">
+  <app-jornadas (jornada)="filtrarPorJornada($event)"></app-jornadas>
+  <app-listado-alumnos [jornada]="jornadaFilter"></app-listado-alumnos>
+  <!-- <app-listado-alumnos appAumentar [jornada]="jornadaFilter"></app-listado-alumnos> -->
+
+</div>

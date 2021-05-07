@@ -1,0 +1,84 @@
+<!-- <div class="subtitol" style="text-align:center;">
+  <mat-card-title>Alumnos</mat-card-title>
+  <div class="alumnos">
+    <div *ngFor="let a of alumnosArrayFiltrado" class="alumno">
+        <mat-list-item class="nombreAlumno" role="listitem">{{a?.data?.nombre}} {{a.data.apellido1}} {{a?.data?.date?.toDate() | date: 'shortDate'}} </mat-list-item>
+        <button mat-icon-button color="primary" aria-label="delete icon" (click)="eliminar(a.id)"><mat-icon>delete</mat-icon></button>
+      </mat-list> {{a.data.date.toDate() | date: 'short'}}
+    </div>
+  </div>
+</div>-->
+
+<div class="subtitol" style="text-align:center;">
+  <mat-card-title>Asistentes</mat-card-title>
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let asistente"> {{asistente.nombre}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef> Telefono </th>
+    <td mat-cell *matCellDef="let asistente"> {{asistente.telefono}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> email </th>
+    <td mat-cell *matCellDef="let asistente"> {{asistente.email}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="dni">
+    <th mat-header-cell *matHeaderCellDef> DNI </th>
+    <td mat-cell *matCellDef="let asistente"> {{asistente.dni}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="rol">
+    <th mat-header-cell *matHeaderCellDef> Rol </th>
+    <td mat-cell *matCellDef="let asistente">{{asistente.rol}}
+      <!-- <mat-icon  aria-hidden="false" aria-label="Example home icon">
+        {{asistente.rol | iconoRol }}
+      </mat-icon> -->
+
+     <!-- ARBITRO 'sports'-->
+     <!-- JUGADOR 'sports-basketball'-->
+     <!-- JUGADOR 'catching-pokemon'-->
+     <!-- JUGADOR 'people-alt'-->
+    </td>
+  </ng-container>
+
+   <!-- Symbol Column -->
+  <ng-container matColumnDef="jornada">
+    <th mat-header-cell *matHeaderCellDef> Jornada </th>
+    <td mat-cell *matCellDef="let asistente">  {{asistente.jornada }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+    <td mat-cell *matCellDef="let asistente"> <!-- {{asistente.id}} -->
+      <button mat-icon-button color="primary" aria-label="delete icon" (click)="eliminar(asistente.id)"><mat-icon>delete</mat-icon></button>
+    </td>
+
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
